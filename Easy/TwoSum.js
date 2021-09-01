@@ -15,50 +15,42 @@
 // Input: nums = [3,3], target = 6
 // Output: [0,1]
 
+// var twoSum = function(nums, target) {
+//     for (let i = 0; i < nums.length; i++) {
+//         array = []
+//         num1 = nums[i]
+//         num2 = nums[i + 1]
+//         if (num1 + num2 === target) {
+//             array.push(nums.indexOf(num1))
+//             array.push(nums.indexOf(num2))
+//         }
+//     }
+// };
+
+// console.log(twoSum([2,7,11,15], 9)) // [0,1]
+
 var twoSum = function(nums, target) {
     let map = new Map();
-    // {2 => 0}
 
     for(let i = 0; i < nums.length; i ++) {
-        num = nums[i];
-        if(map.has(target - num)) {
-            return [map.get(target - num), i];
+        if(map.has(target - nums[i])) {
+            return [map.get(target - nums[i]), i];
         } else {
-            map.set(num, i);
+            map.set(nums[i], i);
         }
     }
 	return [];
 };
 
-console.log(twoSum([2,7,11,15], 9)) // [0,1]
-
 var twoSum = function(nums, target) {
-    for(var i = 0; i< nums.length; i++){
-		// work out the complement
-		// eg. nums[i] === 3, target === 7, the complement will be 4
-        var complement = target - nums[i];
+	let hash = {};
 
-		// Iterate the rest of the number and check if the complement of nums[i] exists
-		// This part takes a lot of time
-        var found = nums.indexOf(complement, i + 1);
-        if(found !== -1){
-            return [i, found];
-        }
-    }
-    return [0, 0];
-};
-
-var twoSum = function(nums, target) {
-    var ret = [];
-    var exist = {};
-    for(var i = 0; i < nums.length; i++){
-        if(typeof(exist[target - nums[i]]) !== 'undefined'){
-            ret.push(exist[target - nums[i]]);
-            ret.push(i + 1);
-        }
-
-        exist[nums[i]] = i + 1;
-    }
-
-    return ret
-};
+	for(let i = 0; i < nums.length; i++) {
+		const n = nums[i];
+		if(hash[target - n] !== undefined) {
+			return [hash[target - n], i];
+		}
+		hash[n] = i;
+	}
+	return [];
+}
