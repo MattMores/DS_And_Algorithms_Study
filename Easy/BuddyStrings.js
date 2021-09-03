@@ -21,7 +21,7 @@
 // Output: true
 
 var buddyStrings = function(s, goal) {
-
+ // to do tomorrow
 };
 
 console.log("ab", "ba") // true
