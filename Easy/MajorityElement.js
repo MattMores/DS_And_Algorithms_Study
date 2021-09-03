@@ -16,6 +16,7 @@ var majorityElement = function(nums) {
     const map = new Map()
     for(let n of nums){
         // console.log(map)
+        console.log(n)
         if (map.has(n)) {
             map.set(n, map.get(n) + 1) // value of key we're passing it
         }
