@@ -11,6 +11,13 @@
 
 // The number of nodes in the tree is in the range [0, 100].
 
+function TreeNode(val, left, right) {
+    this.val = (val === undefined ? 0 : val)
+    this.left = (left === undefined ? null : left)
+    this.right = (right === undefined ? null : right)
+}
+
+
 // left, root, right
  var inorderTraversal = function(root) {
     if (root = []) return;
@@ -37,6 +44,20 @@ function inorderTraversal(root) {
     }
     return res
 }
+
+const inorderTraversal = (root) => {
+    let curr = root,  res = [], stack = [];
+    while (curr || stack.length) {
+        while (curr) {
+            stack.push(curr);
+            curr = curr.left;
+        }
+        curr = stack.pop();
+        res.push(curr.val);
+        curr = curr.right;
+    }
+    return res;
+};
 
 function inorderTraversal(root) {
     const res = [];
@@ -76,6 +97,15 @@ function postOrderTraversal(root) {
         res.push(node.val);
     }
 }
+
+const inorderTraversal = (root) => {
+    if (!root) return [];
+    const res = [];
+    res.push(...inorderTraversal(root.left));
+    res.push(root.val);
+    res.push(...inorderTraversal(root.right));
+    return res;
+};
 
 const inorderTraversal = (root) => {
     if (!root) return [];
