@@ -32,7 +32,7 @@
 function isValidSubsequence(array, sequence) {
     arrayIdx = 0;
     sequenceIdx = 0;
-    for (nums in array) {
+    for (const nums of array) {
         if (array[arrayIdx] === sequence[sequenceIdx]){
             arrayIdx++
             sequenceIdx++

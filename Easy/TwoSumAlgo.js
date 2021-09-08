@@ -17,4 +17,17 @@ function twoNumberSum(array, targetSum) {
     return []
 }
 
+let twoNumberSum = function (array, targetSum) {
+    let map = new Map();
+    for (const nums of array) {
+        const potentialMatch = targetSum - nums;
+        if (map.has(potentialMatch)) {
+            return [potentialMatch, nums]
+        } else {
+            map.set(nums, true)
+        }
+    }
+    return [];
+}
+
 console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10)) // [-1,11]
