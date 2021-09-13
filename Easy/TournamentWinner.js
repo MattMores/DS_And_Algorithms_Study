@@ -50,4 +50,58 @@ function tournamentWinner(competitions, results){
     return
 }
 
+const HOME_TEAM_WON = 1;
+
+function tournamentWinner(competitions, results) {
+  const scores = new Map();
+
+  for (let idx = 0; idx < competitions.length; idx++) {
+    const [homeTeam, awayTeam] = competitions[idx];
+    const result = results[idx];
+    const winningTeam = result === HOME_TEAM_WON ? homeTeam : awayTeam;
+    const currentScore = scores.get(winningTeam) || 0;
+    scores.set(winningTeam, currentScore + 3);
+  }
+
+  let currentBestScore = 0;
+  let currentBestTeam = '';
+  scores.forEach((score, team) => {
+    if (score > currentBestScore) {
+      currentBestScore = score;
+      currentBestTeam = team;
+    }
+  });
+
+  return currentBestTeam;
+}
+
+const HOME_TEAM_WON = 1;
+
+function tournamentWinner(competitions, results) {
+  let currentBestTeam = '';
+  let currentBestScore = 0;
+  const scores = new Map();
+
+  for (let idx = 0; idx < competitions.length; idx++) {
+    const [homeTeam, awayTeam] = competitions[idx];
+    const result = results[idx];
+    const winningTeam = result === HOME_TEAM_WON ? homeTeam : awayTeam;
+    const updatedScore = updateScore(winningTeam, 3, scores);
+
+    if (updatedScore > currentBestScore) {
+      currentBestScore = updatedScore;
+      currentBestTeam = winningTeam;
+    }
+  }
+
+  return currentBestTeam;
+}
+
+function updateScore(team, points, scores) {
+  const prevScore = scores.get(team) || 0;
+  const newScore = prevScore + points;
+  scores.set(team, newScore);
+  return newScore;
+}
+
 console.log(tournamentWinner([["HTML", "C#"], ["C#", "Python"],["Python", "HTML"]], [0,0,1]))
