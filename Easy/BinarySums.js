@@ -10,8 +10,7 @@ class BinaryTree {
 }
 
 function branchSums(root) {
-    const sums = [];
-      traverseTree(root, 0, sums)
+      traverseTree(root, 0, sums = [])
       return sums;
   }
 
