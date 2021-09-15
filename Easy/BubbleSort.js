@@ -34,3 +34,24 @@ function bubbleSort(array) {
        array[idx2] = temp
    }
 
+   function bubbleSort(array){
+       let swapped = true;
+
+       while (swapped){
+           swapped = false;
+           for (let i = 0; i < array.length; i++){
+               if (array[i] > array[i + 1]) {
+                    swap(i, i + 1, array)
+                    swapped = true
+               }
+               continue;
+           }
+       }
+       return array
+   }
+
+   function swap(idx1, idx2, array){
+       let temp = array[idx1]
+       array[idx1] = array[idx2]
+       array[idx2] = temp
+   }
