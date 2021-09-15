@@ -34,12 +34,17 @@ function minimumWaitingTime(queries) {
     return totalWaitingTime;
 }
 
+function minimumWaitingTime(queries) {
+  queries.sort((a, b) => a - b);
+
+  let waitingTime = 0;
+  let totalWaitingTime = 0;
+  for (const duration of queries) {
+    totalWaitingTime += waitingTime;
+    waitingTime += duration;
+  }
+
+  return totalWaitingTime;
+}
+
 console.log(minimumWaitingTime([3, 2, 1, 2, 6])) // 17
-
-[1, 2, 2, 3, 6]
-
-0 + 1 + 3 + 5 + 8
-
-[5, 1, 4]
-[4, 1, 5]
-[0] [4] [4 + 1] = 9
