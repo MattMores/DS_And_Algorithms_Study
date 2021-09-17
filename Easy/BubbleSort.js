@@ -55,3 +55,4 @@ function bubbleSort(array) {
        array[idx1] = array[idx2]
        array[idx2] = temp
    }
+
