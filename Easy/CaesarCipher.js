@@ -22,7 +22,7 @@ function caesarCipherEncryptor(string, key){
     return newLetters.join('');
 }
 
-function getNewLetter(letter, key){
-    const newLetterCode = letter.charCodeAt() + key;
-    return newLetterCode <= 122 ? String.fromCharCode(newLetterCode) : String.fromCharCode(96 + (newLetterCode % 122));
+function getNewLetter(letter, key, alphabet){
+    const newLetterCode = alphabet.indexOf(letter) + key;
+    return alphabet[newLetterCode % 26];
 }
