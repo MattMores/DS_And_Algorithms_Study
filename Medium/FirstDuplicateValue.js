@@ -8,11 +8,36 @@ duplicate value has the minimum index.
 If no integer appears more than once, your funciton should return -1.
 */
 
+// function firstDuplicateValue(array){
+//     let map = new Map();
+//     for(nums of array){
+//         if (!map.has(nums)) map.set(nums, true)
+//         else if (map.has(nums)) return nums
+//     }
+//     return -1
+// }
+
 function firstDuplicateValue(array){
-    let map = new Map();
-    for(nums of array){
-        if (!map.has(nums)) map.set(nums, true)
-        else if (map.has(nums)) return nums
+    let minimumSecondIndex = array.length;
+    for (let i = 0; i < array.length; i++){
+        const value = array[i];
+        for (let j = i + 1; j < array.length; j++){
+            const valueToCompare = array[j]
+            console.log (value, valueToCompare)
+            if (value === valueToCompare){
+                minimumSecondIndex = Math.min(minimumSecondIndex, j);
+            }
+        }
+    }
+    if (minimumSecondIndex === array.length) return -1;
+    return array[minimumSecondIndex]
+}
+
+function firstDuplicateValue(array){
+    for (const value of array){
+        const absValue = Math.abs(value);
+        if(array[absValue -1] < 0) return absValue;
+        array[absValue -1] *= -1;
     }
     return -1
 }
