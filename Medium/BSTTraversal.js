@@ -29,5 +29,4 @@ function postOrderTraverse(tree, array){
         postOrderTraverse(tree.right, array);
         array.push(tree.value)
     }
-
 }
