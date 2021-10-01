@@ -76,3 +76,20 @@ function swapLeftAndRight(tree){
     tree.right = tree.left;
     tree.left = right
 }
+
+function invertBinaryTree(tree){
+    let queue = [tree];
+    let current = queue.shift();
+    while (queue.length){
+        if (current === null) continue;
+        swap(current)
+        queue.push(current.left)
+        queue.push(current.right)
+    }
+}
+
+function swap(tree){
+    let left = tree.left;
+    tree.left = tree.right;
+    tree.right = left;
+}
