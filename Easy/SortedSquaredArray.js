@@ -40,5 +40,15 @@ function sortedSquaredArray(array) {
     return sortedSquares;
   }
 
+  function sortedSquared (array){
+    let unSorted = []
+    for (nums of array){
+      let power = Math.pow(nums, 2)
+      unSorted.push(power)
+    }
+    let sorted = unSorted.sort((a, b) => a - b)
+    return sorted
+  }
+
 
 console.log(sortedSquaredArray([1, 2, 3, 5, 6, 8, 9])) // [1, 4, 9, 25, 36, 64, 81]

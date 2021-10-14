@@ -29,28 +29,42 @@
 //     return seqIdx == sequence.length;
 // }
 
-function isValidSubsequence(array, sequence) {
-    arrayIdx = 0;
-    sequenceIdx = 0;
-    for (const nums of array) {
-        if (array[arrayIdx] === sequence[sequenceIdx]){
-            arrayIdx++
-            sequenceIdx++
+// function isValidSubsequence(array, sequence) {
+//     arrayIdx = 0;
+//     sequenceIdx = 0;
+//     for (const nums of array) {
+//         if (array[arrayIdx] === sequence[sequenceIdx]){
+//             arrayIdx++
+//             sequenceIdx++
+//         }
+//         else arrayIdx++
+//     }
+//     return (sequenceIdx === sequence.length)
+// }
+
+
+// console.log(isValidSubsequence([1, 2, 3, 4], [1, 3, 4])) // true
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10])) // true
+
+
+function validateSub (array, sequence){
+    let testArray = [];
+    let pointer1 = 0;
+    for (let i = 0; i < array.length; i++){
+        if (array[i] === sequence[pointer1]){
+        testArray.push(sequence[pointer1])
+        pointer1++
+        } else {
+            pointer1++
         }
-        else arrayIdx++
     }
-    return (sequenceIdx === sequence.length)
+    return sequence.length === pointer1
 }
 
+function validateSub (array, sequence){
+    let arrayPointer = 0;
+    let sequencePointer = 0;
+    for (nums of array){
 
-console.log(isValidSubsequence([1, 2, 3, 4], [1, 3, 4])) // true
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10])) // true
-
-
-function tbd (whatever){
-    let array = []
-    let absolute = Math.abs(whatever);
-    let power = Math.pow(absolute, 2)
-    array.push(power)
-    return array
+    }
 }
