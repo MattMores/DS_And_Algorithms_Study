@@ -15,17 +15,17 @@
 // Input: nums = [3,3], target = 6
 // Output: [0,1]
 
-// var twoSum = function(nums, target) {
-//     for (let i = 0; i < nums.length; i++) {
-//         array = []
-//         num1 = nums[i]
-//         num2 = nums[i + 1]
-//         if (num1 + num2 === target) {
-//             array.push(nums.indexOf(num1))
-//             array.push(nums.indexOf(num2))
-//         }
-//     }
-// };
+var twoSum = function(nums, target) {
+    for (let i = 0; i < nums.length; i++) {
+        array = []
+        num1 = nums[i]
+        num2 = nums[i + 1]
+        if (num1 + num2 === target) {
+            array.push(nums.indexOf(num1))
+            array.push(nums.indexOf(num2))
+        }
+    }
+};
 
 // console.log(twoSum([2,7,11,15], 9)) // [0,1]
 
@@ -54,3 +54,42 @@ var twoSum = function(nums, target) {
 	}
 	return [];
 }
+function twoNumSum(array, targetSum){
+    for (let i = 0; i < array.length; i++){
+        let number = array[i];
+        for (let j = 0; j < array.length; j++){
+            let secondNumber = array[j]
+            if (number + secondNumber === targetSum) {
+                return [number, secondNumber]
+            }
+        }
+    }
+    return [];
+}
+
+function twoNumSum(array, targetSum){
+    let map = new Map();
+    for (nums of array){
+        if (!map.has(targetSum - nums)){
+            map.set(nums, true)
+        } else {
+            return [nums, map.get(targetSum - nums)]
+        }
+    }
+    return [];
+}
+
+function twoNumberSum(array, targetSum){
+    let map = new Map();
+    for (nums of array){
+        let potentialMatch = targetSum - nums;
+        if (map.has(potentialMatch)){
+            return [potentialMatch, nums]
+        } else {
+            map.set(nums, true)
+        }
+    }
+    return [];
+}
+
+console.log(twoNumSum([3, 5, -4, 8, 11, 1, -1, 6], 10))

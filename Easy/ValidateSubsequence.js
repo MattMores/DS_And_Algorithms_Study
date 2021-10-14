@@ -45,3 +45,12 @@ function isValidSubsequence(array, sequence) {
 
 console.log(isValidSubsequence([1, 2, 3, 4], [1, 3, 4])) // true
 console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10])) // true
+
+
+function tbd (whatever){
+    let array = []
+    let absolute = Math.abs(whatever);
+    let power = Math.pow(absolute, 2)
+    array.push(power)
+    return array
+}
