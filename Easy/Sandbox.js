@@ -1,27 +1,14 @@
-function minimumWaitingTime(queries){
-    let sorted = queries.sort((a, b) => a - b)
-    let waitingTime = 0; // 1
-    let totalWaitingTime = 0; // 0
+function classPhotos(redShirtHeights, blueShirtHeights){
+    redShirtHeights.sort((a, b) => b - a);
+    blueShirtHeights.sort((a, b) => b - a);
 
-    for (const duration of queries){
-        totalWaitingTime += waitingTime;
-        waitingTime += duration;
+    const shirtColorInFirstRow = redShirtHeights[0] < blueShirtHeights[0] ? "RED" : "BLUE";
+    for (let i = 0; i < redShirtHeights.length; i++){
+        const redShirtHeight = redShirtHeight[i];
+        const blueShirtHeight = blueShirtHeights[i];
+        if (shirtColorInFirstRow === "RED"){
+            if (redShirtHeight >= blueShirtHeight) return false;
+        } else if (blueShirtHeight >= redShirtHeight) return false;
     }
-    return totalWaitingTime;
+    return true;
 }
-
-function minimumWaitingTime(queries){
-    queries.sort((a, b) => a - b);
-
-    let totalWaitingTime = 0;
-
-    for (let i = 0; i < queries.length; i++){
-        const duration = queries[i];
-        const queriesLeft = queries.length - (i + 1);
-        totalWaitingTIme += duration * queriesLeft
-    }
-    return totalWaitingTIme
-}
-
-
-console.log(minimumWaitingTime([3, 2, 1, 2, 6]))
