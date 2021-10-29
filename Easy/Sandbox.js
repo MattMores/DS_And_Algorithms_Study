@@ -8,7 +8,7 @@ function classPhotos(redShirtHeights, blueShirtHeights){
         for (const i = 0; i < redSorted.length; i++) {
             if (redSorted[i] >= blueSorted[i]) return false
         }
-    else if (frontRow === "BLUE"){
+    if (frontRow === "BLUE"){
         for (const i = 0; i < blueSorted.length; i++){
             if (blueSorted[i] >= redSorted[i]) return false
         }
