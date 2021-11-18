@@ -183,3 +183,7 @@ function minimumWaitingTime(queries){
     }
     return totalWaitingTime
 }
+
+function classPhotos(redShirtHeights, blueShirtHeights){
+    
+}
