@@ -185,5 +185,17 @@ function minimumWaitingTime(queries){
 }
 
 function classPhotos(redShirtHeights, blueShirtHeights){
-    
+    redShirtHeights.sort((a, b) => a - b);
+    blueShirtHeights.sort((a, b) => a - b);
+    const firstRow = redShirtHeights[0] < blueShirtHeights[0] ? "RED" : "BLUE";
+    for (let i = 0; i < redShirtHeights.length; i ++){
+        const redShirt = redShirtHeights[i]
+        const blueShirt = blueShirtHeights[i]
+        if (firstRow === "RED"){
+            if (redShirt >= blueShirt) return false
+        } else if (firstRow === "BLUE"){
+            if (blueShirt >= redShirt) return false
+        }
+    }
+    return true
 }
