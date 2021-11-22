@@ -213,3 +213,45 @@ function classPhotos(redShirtHeights, blueShirtHeights){
     }
     return true
 }
+
+function tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest){
+    if (fastest === true){
+        redShirtSpeeds.sort((a, b) => (a - b));
+        blueShirtSpeeds.sort((a, b) => (b - a));
+    } else {
+        redShirtSpeeds.sort((a,b) => a - b);
+        blueShirtSpeeds.sort((a, b) => a - b);
+    }
+    let totalSpeed = 0;
+    for (let i = 0; i < redShirtSpeeds.length; i++){
+        if (redShirtSpeeds[i] >= blueShirtSpeeds[i]){
+            totalSpeed += redShirtSpeeds[i]
+        } else totalSpeed += blueShirtSpeeds[i]
+    }
+    return totalSpeed
+}
+
+function tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest){
+    redShirtSpeeds.sort((a, b) => a - b);
+    blueShirtSpeeds.sort((a, b) => a -b);
+
+    if(!fastest) reverseArrayInPlace(redShirtSpeeds);
+
+    let totalSpeed = 0;
+    for (let i = 0; i < redShirtSpeeds.length; i++){
+        const rider1 = redShirtSpeeds[i];
+        const rider2 = blueShirtSpeeds[i];
+    }
+}
+
+function reverseArrayInPlace(array){
+    let start = 0;
+    let end = array.length - 1;
+    while (start < end){
+        const temp = array[start];
+        array[start] = array[end]
+        array[end] = temp;
+        start ++;
+        end --;
+    }
+}
