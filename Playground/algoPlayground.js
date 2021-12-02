@@ -255,3 +255,29 @@ function reverseArrayInPlace(array){
         end --;
     }
 }
+
+function sortedSquaredArray(array){
+    let newArray = [];
+    for (let nums of array){
+        newArray.push(Math.pow(nums, 2))
+    }
+    return newArray.sort((a, b) => a - b)
+}
+
+function sortedSquaredArray(array){
+    const sortedSquares = [];
+    let smallerValueIdx = 0;
+    let largerValueIdx = array.length -1;
+
+    for (let i = array.length -1; i >= 0; i --){
+        const smallerValue = array[smallerValueIdx];
+        const largerValue = array[largerValueIdx];
+        if (Math.abs(smallerValue > Math.abs(largerValue))){
+            sortedSquares.push(smallerValue * smallerValue)
+            smallerValueIdx++;
+        } else {
+            sortedSquares.push(largerValue * largerValue);
+            largerValueIdx--;
+        }
+    }
+}
