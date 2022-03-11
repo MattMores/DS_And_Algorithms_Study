@@ -43,7 +43,7 @@ function sortedSquaredArray(array){
 
     for (let i = 0; i < array.length; i++){
         const value = array[i];
-        sortedSquares[i] = value * value;
+        sortedSquares[i] = value * value; //update
     }
 
     sortedSquares.sort((a, b) => a - b)
@@ -68,5 +68,5 @@ function sortedSquares(array){
         }
     }
 
-    return sortedSquares; 
+    return sortedSquares;
 }
