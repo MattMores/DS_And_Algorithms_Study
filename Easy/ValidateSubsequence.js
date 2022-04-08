@@ -42,29 +42,44 @@
 //     return (sequenceIdx === sequence.length)
 // }
 
-
 // console.log(isValidSubsequence([1, 2, 3, 4], [1, 3, 4])) // true
 // console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10])) // true
 
-
-function validateSub (array, sequence){
-    let testArray = [];
-    let pointer1 = 0;
-    for (let i = 0; i < array.length; i++){
-        if (array[i] === sequence[pointer1]){
-        testArray.push(sequence[pointer1])
-        pointer1++
-        } else {
-            pointer1++
-        }
+function validateSub(array, sequence) {
+  let testArray = [];
+  let pointer1 = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === sequence[pointer1]) {
+      testArray.push(sequence[pointer1]);
+      pointer1++;
+    } else {
+      pointer1++;
     }
-    return sequence.length === pointer1
+  }
+  return sequence.length === pointer1;
 }
 
-function validateSub (array, sequence){
-    let arrayPointer = 0;
-    let sequencePointer = 0;
-    for (nums of array){
-
-    }
+function validateSub(array, sequence) {
+  let arrayPointer = 0;
+  let sequencePointer = 0;
+  for (nums of array) {
+  }
 }
+
+function isValidSubsequence(array, sequence) {
+  const pointer1 = 0;
+  const pointer2 = 0;
+  const counter = 0;
+
+  for (nums in array) {
+    if (array[pointer1] === sequence[pointer2]) {
+      pointer1++;
+      pointer2++;
+      counter++;
+    } else {
+      pointer1++;
+    }
+  }
+}
+
+// Two arrays --> is second subsequence of first?
