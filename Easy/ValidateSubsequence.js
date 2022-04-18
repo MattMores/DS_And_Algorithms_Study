@@ -29,18 +29,17 @@
 //     return seqIdx == sequence.length;
 // }
 
-// function isValidSubsequence(array, sequence) {
-//     arrayIdx = 0;
-//     sequenceIdx = 0;
-//     for (const nums of array) {
-//         if (array[arrayIdx] === sequence[sequenceIdx]){
-//             arrayIdx++
-//             sequenceIdx++
-//         }
-//         else arrayIdx++
-//     }
-//     return (sequenceIdx === sequence.length)
-// }
+function isValidSubsequence(array, sequence) {
+  arrayIdx = 0;
+  sequenceIdx = 0;
+  for (const nums of array) {
+    if (array[arrayIdx] === sequence[sequenceIdx]) {
+      arrayIdx++;
+      sequenceIdx++;
+    } else arrayIdx++;
+  }
+  return sequenceIdx === sequence.length;
+}
 
 // console.log(isValidSubsequence([1, 2, 3, 4], [1, 3, 4])) // true
 // console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10])) // true
@@ -80,6 +79,7 @@ function isValidSubsequence(array, sequence) {
       pointer1++;
     }
   }
+  return sequence.length === counter;
 }
 
 // Two arrays --> is second subsequence of first?
