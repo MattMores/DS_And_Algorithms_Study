@@ -82,4 +82,6 @@ function isValidSubsequence(array, sequence) {
   return sequence.length === counter;
 }
 
+
+
 // Two arrays --> is second subsequence of first?
