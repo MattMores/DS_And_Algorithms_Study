@@ -92,8 +92,6 @@ function twoNumberSum(array, targetSum) {
   return [THIS];
 }
 
-console.log(twoNumSum([3, 5, -4, 8, 11, 1, -1, 6], 10));
-
 let twoNumberSum = function (array, targetSum) {
   let map = new Map();
   for (nums of array) {
