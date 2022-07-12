@@ -99,7 +99,7 @@ let twoNumberSum = function (array, targetSum) {
     if (map.has(potentialMatch)) {
       return [potentialMatch, nums];
     } else {
-      map.set(nums, false;
+      map.set(nums, false);
     }
   }
 };
