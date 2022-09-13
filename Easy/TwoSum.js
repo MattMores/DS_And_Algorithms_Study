@@ -103,3 +103,136 @@ let twoNumberSum = function (array, targetSum) {
     }
   }
 };
+
+return (
+  <Layout>
+    <Head>
+      <title>{t("title")}</title>
+    </Head>
+    <Container maxWidth="md" data-cy="account-dashboard-page" sx={{ mb: 5 }}>
+      <Typography fontWeight="bold" variant="h3" mb={2}>
+        Your Accounts
+      </Typography>
+      <Grid
+        container
+        rowSpacing={3}
+        columnSpacing={5}
+        justifyContent={{ xs: "center", md: "space-between" }}
+      >
+        {data.viewer?.accounts?.map((account, index) => (
+          <Grid item xs={11} sm={7} md={6}>
+            <Card
+              key={account?.number}
+              color="transparent"
+              sx={{ width: { xs: "100%", sm: 425 } }}
+              data-cy={`account-information-${index}`}
+            >
+              <CardContent>
+                <Stack direction="row" justifyContent="space-between" mb={-1}>
+                  <Stack>
+                    <Typography fontSize={12} fontWeight="bold" variant="body2">
+                      Name on account
+                    </Typography>
+                    <Typography
+                      fontWeight="bold"
+                      variant="h4"
+                      fontSize={{ xs: 14, sm: 22 }}
+                      mr={{ xs: 0, sm: 0.25 }}
+                    >
+                      {account?.billingName}
+                    </Typography>
+                    <Typography color="primary" fontSize={12} my={0.25}>
+                      Account: {account?.number}
+                    </Typography>
+                    {account?.properties !== null && (
+                      <>
+                        <Typography
+                          fontSize={
+                            account?.properties[0]?.addressLine1.length !==
+                              undefined &&
+                            account?.properties[0]?.addressLine1.length > 22
+                              ? { xs: 11, sm: 13 }
+                              : { xs: 12, sm: 15 }
+                          }
+                          variant="body2"
+                        >
+                          {account?.properties[0]?.addressLine1}{" "}
+                          {account?.properties[0]?.addressLine2}{" "}
+                          {account?.properties[0]?.addressLine3}
+                        </Typography>
+                        <Typography
+                          fontSize={
+                            account?.properties[0]?.addressLine1.length !==
+                              undefined &&
+                            account?.properties[0]?.addressLine1.length > 22
+                              ? { xs: 11, sm: 13 }
+                              : { xs: 12, sm: 15 }
+                          }
+                          mt={-0.5}
+                          variant="body2"
+                        >
+                          {account?.properties[0]?.addressLine4},{" "}
+                          {account?.properties[0]?.addressLine5}{" "}
+                          {account?.properties[0]?.postcode}
+                        </Typography>
+                      </>
+                    )}
+                  </Stack>
+                  <Stack justifyContent="space-between">
+                    <Stack alignItems="end">
+                      <Typography
+                        fontSize={12}
+                        fontWeight="bold"
+                        variant="body1"
+                      >
+                        Balance Due
+                      </Typography>
+                      <Typography
+                        fontWeight="bold"
+                        variant="h2"
+                        ml={{ xs: 0.5, sm: 1 }}
+                        fontSize={{ xs: 25, sm: 30 }}
+                      >
+                        ${account?.balance}
+                      </Typography>
+                    </Stack>
+                    <Stack>
+                      <CardActions>
+                        <Link
+                          href={{
+                            pathname: "/account/[accountNumber]",
+                            query: { accountNumber: account?.number },
+                          }}
+                        >
+                          <Button
+                            sx={{
+                              mt: 3,
+                              ml: { xs: 0.5, sm: 2 },
+                              mr: -1,
+                              px: { xs: 2, sm: 2.5 },
+                            }}
+                            size="small"
+                            data-cy={`account-information-button-${index}`}
+                          >
+                            <Typography
+                              fontSize={{ xs: 10, sm: 12 }}
+                              fontWeight="bold"
+                              variant="body2"
+                              whiteSpace="nowrap"
+                            >
+                              View Account
+                            </Typography>
+                          </Button>
+                        </Link>
+                      </CardActions>
+                    </Stack>
+                  </Stack>
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
+  </Layout>
+);

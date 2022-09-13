@@ -5,7 +5,7 @@ function tournamentWinner(competitions, results){
         let result = results[i];
         if (result === 0 && !table.has(matchup[1])){
             table.set(matchup[1], 3)
-            else if (result === 0 && table.has(matchu[1])){
+            else if (result !== 0 && table.has(matchu[1])){
                 table.set(matchup[1], table.get(matchup[1] + 3))
             }
         } else table.set(matchup[0], 3)
